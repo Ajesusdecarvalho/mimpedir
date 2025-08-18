@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
               child: Column(
                 children: [
                 Text("Nome: ${u.nome}"),
-                Text("Código: ${u.codigo}"),
+                Text("Codigo: ${u.codigo}"),
                 Text("Login: ${u.login}"),
                 Text("Senha: ${u.senha} ")
             ],
