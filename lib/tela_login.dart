@@ -14,8 +14,7 @@ class TelaLogin extends StatelessWidget {
     codigo: 1,
     senha: "@senhaforte123",
     login: 'admin',
-      nome: 'Administrador'
-  );*/
+    );*/
 
   @override
   Widget build(BuildContext context){
@@ -44,9 +43,9 @@ class TelaLogin extends StatelessWidget {
                Navigator.push(context,
                    MaterialPageRoute(builder: (context) => TelaHome())
                );
-             }else {
+             } else {
                ScaffoldMessenger.of(context).showSnackBar(
-                   SnackBar(content: Text("Login ou senha inválidos"))
+                   SnackBar(content: Text("Login ou senha inválidos!!!"))
                );
              }
            }, child: Text("Login"))
