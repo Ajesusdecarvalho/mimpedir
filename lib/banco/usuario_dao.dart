@@ -3,7 +3,7 @@ import '../usuario.dart';
 
 class UsuarioDAO{
   static Future<bool> autenticar(String login, String senha) async {
-    final db = await DatabaseHelpet.getDataBase();
+    final db = await DatabaseHelper.getDataBase();
 
     final resultado = await db.query(
      'tb_usuario',
