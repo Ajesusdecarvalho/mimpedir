@@ -1,17 +1,36 @@
-import 'database_helper.dart';
+import 'package:mimpedir/banco/database_helper.dart';
 import '../usuario.dart';
 
-class UsuarioDAO{
+
+class UsuarioDAO {
+  static Usuario usuarioLogado = Usuario();
+
+
   static Future<bool> autenticar(String login, String senha) async {
     final db = await DatabaseHelper.getDataBase();
 
+
     final resultado = await db.query(
-     'tb_usuario',
+      'tb_usuario',
       where: 'nm_login = ? and ds_senha = ?',
-      whereArgs: [login,senha]
+      whereArgs: [login, senha],
     );
 
-    return resultado.isNotEmpty;
+
+    if (resultado.isNotEmpty) {
+      final row = resultado.first;
+
+
+      usuarioLogado.codigo = row['cd_usuario'] as int?;
+      usuarioLogado.nome = row['nm_usuario'] as String?;
+      usuarioLogado.login = row['nm_login'] as String?;
+      usuarioLogado.senha = row['ds_senha'] as String?;
+
+
+      return true;
+    }
+
+
+    return false;
   }
 }
-
